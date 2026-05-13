@@ -8,6 +8,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $dob = $_POST['dob'];
     $contact_no = $_POST['contact_no'];
     $age = $_POST['age'];
+    $status = 1;
 
     $sql = "SELECT usr_name FROM users WHERE usr_name =?";
     $stmt = $conn->prepare($sql);
@@ -21,10 +22,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
        $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
 
        $sql ='INSERT INTO users (usr_name,usr_password,
-        usr_contact,usr_dob,usr_age) VALUE (?,?,?,?,?)';
+        usr_contact,usr_dob,usr_age,usr_status) VALUE (?,?,?,?,?,?)';
 
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssssi", $user,$hashed_password, $contact_no,$dob,$age);
+        $stmt->bind_param("ssssii", $user,$hashed_password, $contact_no,$dob,$age,$status);
 
         if($stmt->execute()){
             echo "<script>alert('Registered Successfully! You can Login now.'); window.location.href='index.php';</script>";

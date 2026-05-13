@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
    
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"> -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
     
   <style>
@@ -75,17 +75,6 @@
     </style>
 </head>
 <body>
-
-  <?php 
-  $website = "THis is my website";
-
-  
-  function getWebsite(){
-    global $website;
-    return $website;
-  }
-
-  echo getWebsite(); ?>
 <div class="container mt-5 bg-danger">
 
     <h2>Create Account</h2>
